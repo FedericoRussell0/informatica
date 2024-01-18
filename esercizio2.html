@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Stampa numeri</title>
+    <script>
+      function stampaNumeri() {
+        var num = document.getElementById("numero").value;
+        for (var i = 1; i <= num; i++) {
+          document.write(i + "<br>");
+        }
+        var decimo = num / 10;
+        document.write("<br>Il decimo di " + num + " è " + decimo);
+      }
+    </script>
+  </head>
+  <body>
+    <label for="numero">Inserisci un numero: </label>
+    <input type="number" id="numero" name="numero">
+    <button onclick="stampaNumeri()">Clicca qui per stampare i numeri da 1 a N e il decimo di N</button>
+  </body>
+</html>
