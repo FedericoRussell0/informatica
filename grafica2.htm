@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creazione di div</title>
+	<style>
+		div {
+			border: 1px solid black;
+			width: 10px;
+			height: 10px;
+			background-color: lightcoral;
+			margin: 2px;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<label for="numero_div">Numero di div:</label>
+	<input type="number" id="numero_div" name="numero_div" min="1" max="100" value="1">
+	<button onclick="creaDiv()">Crea div</button>
+	<div id="contenitore"></div>
+	<script>
+		function creaDiv() {
+			var numero_div = document.getElementById("numero_div").value;
+			var contenitore = document.getElementById("contenitore");
+			contenitore.innerHTML = "";
+			for (var i = 0; i < numero_div; i++) {
+				var div = document.createElement("div");
+				contenitore.appendChild(div);
+			}
+		}
+	</script>
+</body>
+</html>
