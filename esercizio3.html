@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Contatore e tabellina</title>
+    <script>
+      function stampaTabellina() {
+        var num = 1;
+        var intervalId = setInterval(function() {
+          if (num > 5) {
+            clearInterval(intervalId);
+            var tabellina = "";
+            for (var i = 1; i <= 10; i++) {
+              tabellina += i + " x " + num + " = " + i * num + "<br>";
+            }
+            document.getElementById("tabellina").innerHTML = tabellina;
+          } else {
+            console.log(num);
+            num++;
+          }
+        }, 1000);
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="stampaTabellina()">Clicca qui per avviare il contatore e stampare la tabellina</button>
+    <div id="tabellina"></div>
+  </body>
+</html>
