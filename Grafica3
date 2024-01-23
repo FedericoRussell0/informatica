@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .quadrato {
+      width: 10px;
+      height: 10px;
+      margin: 2px;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+
+<script>
+  document.write('<table>');
+  for (let num = 1; num <= 100; num++) {
+    if (num % 10 === 1) {
+      document.write('<tr>');
+    }
+
+    let coloreSfondo = (num % 2 === 0) ? '#CCCCCC' : '#666666';
+    document.write('<td class="quadrato" style="background-color: ' + coloreSfondo + '"></td>');
+
+    if (num % 10 === 0) {
+      document.write('</tr>');
+    }
+  }
+  document.write('</table>');
+</script>
+
+</body>
+</html>
