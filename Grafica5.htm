@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Conteggio clic immagini</title>
+  <style>
+    .square {
+      width: 25px;
+      height: 25px;
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      border: 1px solid black;
+    }
+  </style>
+  <script>
+    let pizzaCount = 0;
+    let bombCount = 0;
+
+    function pizzaClick() {
+      pizzaCount++;
+      document.getElementById("pizza-count").innerHTML = pizzaCount;
+    }
+
+    function bombClick() {
+      bombCount++;
+      document.getElementById("bomb-count").innerHTML = bombCount;
+    }
+  </script>
+</head>
+<body>
+  <div class="square">
+    <img src="https://lh3.googleusercontent.com/drive-storage/ANtge_EZ3ooyUAzNBdKbFWJiS0Omb9OfaB_fstK9fNm334PyllSKskifY3WTPx1E4o5ajrWZs9X62Vmekv4y8Esr15rqwvQ_G3PqrbTT3g93=w1920-h963" alt="Pizza" onclick="pizzaClick()">
+  </div>
+  <div class="square">
+    <img src="https://lh3.googleusercontent.com/drive-storage/ANtge_F6GfE8b0loDOGAGFGRzayf8Rj6keyi2E5oexLPpsVUqBGMbnoH6WCSlTs304oCJFvSyg0KGR12fFSSXil2srnzUjmBzE1jewm6alMo=w1920-h963" alt="Bomba" onclick="bombClick()">
+  </div>
+  <p>Pizza cliccata <span id="pizza-count">0</span> volte.</p>
+  <p>Bomba cliccata <span id="bomb-count">0</span> volte.</p>
+</body>
+</html>
