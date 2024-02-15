@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcolatore Numerico</title>
+    <style>
+        /* Stile dei bottoni */
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calcolatore Numerico</h1>
+    <button onclick="incrementByTwo()">Incrementa di 2</button>
+    <button onclick="incrementByThree()">Incrementa di 3</button>
+    <button onclick="incrementBySeven()">Incrementa di 7</button>
+    <p id="result"></p>
+
+    <script>
+        let number = 0; // Numero iniziale
+
+        function incrementByTwo() {
+            number += 2;
+            displayResult();
+        }
+
+        function incrementByThree() {
+            number += 3;
+            displayResult();
+        }
+
+        function incrementBySeven() {
+            number += 7;
+            displayResult();
+        }
+
+        function displayResult() {
+            document.getElementById("result").textContent = `Risultato: ${number}`;
+        }
+    </script>
+</body>
+</html>
