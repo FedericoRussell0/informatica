@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bar Russe</title>
+</head>
+<body>
+    <h1>Benvenuto al bar di Russe!</h1>
+    <p>Seleziona un drink dal nostro menù</p>
+
+    <h2>Lista dei drink:</h2>
+    <ul id="drinkList">
+        <li>Angelo Azzurro</li>
+        <li>Margarita</li>
+        <li>Sex on the beach</li>
+        <li>Black Russian</li>
+        <li>Long Island</li>
+        <li>Jaiger con RedBull</li>
+    </ul>
+
+    <button onclick="addOrder()">Aggiungi un ordine</button>
+    <button onclick="deleteOrder()">Rimuovi un ordine</button>
+    <button onclick="printOrderedDrinks()">Stampa gli ordini</button>
+
+    <h2>Il tuo ordine:</h2>
+    <ul id="orderList"></ul>
+
+    <script>
+        const drinkList = ["Angelo Azzurro", "Margarita", "Sex on the beach", "Black Russian", "Long Island", "Jaiger con RedBull"];
+        const orderList = [];
+
+        function addOrder() {
+            const drinkIndex = prompt("Inserisci il numero del drink da ordinare (1-6):");
+            if (drinkIndex >= 1 && drinkIndex <= drinkList.length) {
+                orderList.push(drinkList[drinkIndex - 1]);
+                updateOrderList();
+            } else {
+                alert("Numero non valido. Riprova.");
+            }
+        }
+
+        function deleteOrder() {
+            const drinkIndex = prompt("Inserisci il numero del drink da rimuovere dagli ordini (1-6):");
+            if (drinkIndex >= 1 && drinkIndex <= orderList.length) {
+                orderList.splice(drinkIndex - 1, 1);
+                updateOrderList();
+            } else {
+                alert("Numero non valido. Riprova.");
+            }
+        }
+
+        function updateOrderList() {
+            const orderListElement = document.getElementById("orderList");
+            orderListElement.innerHTML = "";
+            orderList.forEach((drink) => {
+                const li = document.createElement("li");
+                li.textContent = drink;
+                orderListElement.appendChild(li);
+            });
+        }
+
+        function printOrderedDrinks() {
+            alert("Drink ordinati:\n" + orderList.join(", "));
+        }
+    </script>
+</body>
+</html>
