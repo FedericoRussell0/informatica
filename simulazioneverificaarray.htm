@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeri da 1 a 1000</title>
+    <script>
+       
+        const numeriPari = [];
+        for (let i = 2; i <= 1000; i += 2) {
+            numeriPari.push(i);
+        }
+
+       
+        const numeriDispari = [];
+        for (let i = 1; i <= 1000; i += 2) {
+            numeriDispari.push(i);
+        }
+
+       
+        function èprimo(num) {
+            if (num < 2) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+       
+        const numeriPrimi = [];
+        for (let i = 2; i <= 1000; i++) {
+            if (èprimo(i)) {
+                numeriPrimi.push(i);
+            }
+        }
+
+       
+        const successiviPrimi = [];
+        for (let i = 0; i < numeriPrimi.length; i++) {
+            successiviPrimi.push(numeriPrimi[i] + 1);
+        }
+
+       
+        let pariSuccessivi = 0;
+        let primiSuccessivi = 0;
+
+        for (let i = 0; i < successiviPrimi.length; i++) {
+            if (successiviPrimi[i] % 2 === 0) {
+                pariSuccessivi++;
+            }
+            if (èprimo(successiviPrimi[i])) {
+                primiSuccessivi++;
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("numeriPari").textContent = numeriPari.join(", ");
+            document.getElementById("numeriDispari").textContent = numeriDispari.join(", ");
+            document.getElementById("numeriPrimi").textContent = numeriPrimi.join(", ");
+            document.getElementById("successiviPrimi").textContent = successiviPrimi.join(", ");
+            document.getElementById("pariSuccessivi").textContent = pariSuccessivi;
+            document.getElementById("primiSuccessivi").textContent = primiSuccessivi;
+        });
+    </script>
+</head>
+<body>
+    <h1>Numeri da 1 a 1000</h1>
+    <h2>Numeri pari</h2>
+    <p id="numeriPari"></p>
+
+    <h2>Numeri dispari</h2>
+    <p id="numeriDispari"></p>
+
+    <h2>Numeri primi</h2>
+    <p id="numeriPrimi"></p>
+
+    <h2>Successivi dei numeri primi</h2>
+    <p id="successiviPrimi"></p>
+
+    <h2>Pari e Primi tra i successivi</h2>
+    <p>Numero di successivi pari: <span id="pariSuccessivi"></span></p>
+    <p>Numero di successivi che sono ancora primi: <span id="primiSuccessivi"></span></p>
+</body>
+</html>
