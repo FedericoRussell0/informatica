@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .square-box {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 5px;
+            display: inline-block;
+            text-align: center;
+            font-size: 16px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        
+        const numeriCasuali = Array.from({ length: 100 }, () => Math.floor(Math.random() * 100) + 1);
+
+     
+        const container = document.getElementById('container');
+
+       
+        for (let i = 0; i < 100; i++) {
+            const quadrato = document.createElement('div');
+            quadrato.classList.add('square-box');
+            quadrato.textContent = numeriCasuali[i];
+            
+           
+            if (numeriCasuali[i] % 2 === 0) {
+                quadrato.style.backgroundColor = 'red';
+            } else {
+                quadrato.style.backgroundColor = 'lightblue';
+            }
+
+            container.appendChild(quadrato);
+        }
+    </script>
+</body>
+</html>
