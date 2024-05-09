@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .square {
+            width: 50px; 
+            height: 50px; 
+            display: inline-block;
+            margin: 3px;
+            text-align: center;
+            line-height: 50px; 
+        }
+    </style>
+</head>
+<body>
+    <script>
+        
+        const numbersArray = Array.from({ length: 1000 }, (_, i) => i + 1000);
+
+       
+        function isPrime(num) {
+            if (num <= 1) return false;
+            for (let i = 2; i <= Math.sqrt(num); i++) {
+                if (num % i === 0) return false;
+            }
+            return true;
+        }
+
+        
+        const container = document.body;
+        numbersArray.forEach((num) => {
+            const square = document.createElement("div");
+            square.className = "square";
+            square.textContent = num;
+
+            if (num % 2 === 0) {
+                square.style.backgroundColor = "darkred"; 
+            } else {
+                square.style.backgroundColor = "lightblue"; 
+            }
+
+            if (num % 7 === 0) {
+                square.style.backgroundColor = "lightcoral"; 
+            }
+
+            if (isPrime(num)) {
+                square.style.backgroundColor = "yellow"; 
+            }
+
+            container.appendChild(square);
+        });
+    </script>
+</body>
+</html>
