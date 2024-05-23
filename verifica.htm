@@ -1,0 +1,65 @@
+<!--1) Creare un programma che chiede un numero  n e crea con un ciclo for n quadrati .
+
+
+2) Inserire in questi quadrati un numero casuale intero compreso tra 100 e 200
+e colorare di blu lo sfondo dei quadrati che contengono un numero multiplo di 10
+
+
+3) Creare un programma che stampi 1000 quadrati con numeri che vanno da 1 a 1000 e colorare i rosso chiaro lo sfondo dei numeri primi
+i numeri primi nei quadrati sono dei link dal quale è possibile navigare in un altra pagina con font 100 di colore
+rosso con la scritta "prime number"
+-->>
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .square {
+            width: 50px;
+            height: 50px;
+            display: inline-block;
+            text-align: center;
+            font-size: 20px;
+            line-height: 50px;
+        }
+        .blue {
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+
+        function createSquares(n) {
+            for (let i = 1; i <= n; i++) {
+                const square = document.createElement("div");
+                square.classList.add("square");
+                const randomNumber = getRandomInt(100, 200);
+                square.textContent = randomNumber;
+                if (randomNumber % 10 === 0) {
+                    square.classList.add("blue");
+                }
+                document.body.appendChild(square);
+            }
+        }
+
+
+        const numberOfSquares = prompt("Inserisci il numero di quadrati da creare:");
+        createSquares(parseInt(numberOfSquares));
+    </script>
+</body>
+</html>
+
+
+
